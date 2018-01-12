@@ -12,6 +12,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  }));
+
+
 massive(process.env.CONNECTION_STRING)
 .then( db => {
     app.set('db', db)
@@ -19,7 +26,49 @@ massive(process.env.CONNECTION_STRING)
     console.log('error', error);
   });
 
+  app.post('/login', (req, res) => {
+    const { userId } = req.body;
+    const auth0Url = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/api/v2/users/${userId}`;
+    axios.get(auth0Url, {
+      headers: {
+        Authorization: 'Bearer ' + process.env.AUTH0_MANAGEMENT_ACCESS_TOKEN
+      }
+    }).then(response => {
+      const userData = response.data;
+      req.session.user = {
+        name: userData.name,
+        email: userData.email,
+        auth0_id: userData.user_id,
+        pictureUrl: userData.picture
+      };
+      res.json({ user: req.session.user });
+      app.get('db').find_user(userData.user_id).then(users => {
+        if (!users.length) {
+          app.get('db').create_user([userData.user_id, userData.email, userData.picture, userData.name]).then(() => {
+            
+          }).catch(error => {
+            console.log('error', error);
+          });
+        }
+      })
+    }).catch(error => {
+      console.log('error', error);
+      res.status(500).json({ message: 'Oh noes!' });
+    });
+  });
+
+// app.get('/user-data', (req, res) => {
+//     res.json({ user: req.session.user });
+//   });
+
+  app.post('/logout', (req, res) => {
+    req.session.destroy();
+    res.send();
+  });
+    
+
 app.post('/api/form/update', ctr.updateProfile);
+app.get('/api/profile', ctr.read);
   
 const port = 3003;
 

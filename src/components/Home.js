@@ -3,6 +3,7 @@ import Header from './Header'
 import { Link } from 'react-router-dom'
 
 
+
 class Home extends Component {
     constructor(props) {
         super(props)
@@ -15,6 +16,7 @@ class Home extends Component {
             <div>
                 <Header/>
                 <Link to="/profile"><button className="button">Edit Profile</button></Link>
+                <Link to="/"><button className="button">LoginPage</button></Link>
             </div>
         )
     }

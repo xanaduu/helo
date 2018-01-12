@@ -44,3 +44,7 @@
   box-shadow : 7px 7px 16px rgba(0, 0, 0, 0.61);
   margin: 2px 90px;
 }
+
+.leftAlign{
+  float: left;
+}

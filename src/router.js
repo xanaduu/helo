@@ -10,7 +10,7 @@ import Profile from './components/Profile'
 
 export default (
     <Switch>
-        <Route exact path="/" component={ Login }/>
+        <Route exact path="/(access_token.*)?" component={ Login }/>
         <Route path="/home" component={ Home }/>
         <Route path="/search" component={ Search }/>
         <Route path="/profile" component={ Profile }/>
