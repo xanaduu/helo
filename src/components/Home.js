@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Header from './Header'
+import { Link } from 'react-router-dom'
 
 
 class Home extends Component {
@@ -11,7 +13,8 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
+                <Header/>
+                <Link to="/profile"><button className="button">Edit Profile</button></Link>
             </div>
         )
     }

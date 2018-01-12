@@ -13,7 +13,7 @@ class Button extends Component {
     render() {
         return (
             <div>
-                <Link to="/home"><button className="button" >{this.props.children}</button></Link>
+                <Link to="/home"><button className={this.props.css} >{this.props.children}</button></Link>
             </div>
         )
     }

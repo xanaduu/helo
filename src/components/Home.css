@@ -12,7 +12,7 @@
 
 .box{
     padding: 20px;
-    margin: 0px 400px ;
+    margin: 0px 15vw ;
     color: white;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
@@ -28,6 +28,12 @@
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=7, OffY=7, Color='#000000') progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF7C94',endColorstr='#E9FF70' , GradientType=1);
 }
 
-.boxyBox{
-    margin-top: 300px
+.nav{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: baseline;
+  align-content: stretch;
+  padding: 20px;
 }
