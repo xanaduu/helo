@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Header from './Header'
+import Form from './Form'
 
 
 class Profile extends Component {
@@ -11,7 +13,10 @@ class Profile extends Component {
     render() {
         return (
             <div>
-                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
+                <Header/>
+                <div>
+                <Form/>
+                </div>
             </div>
         )
     }

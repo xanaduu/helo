@@ -7,7 +7,7 @@ import './Home.css'
 
 const Header = (props) => {
     return (
-        <div>
+        <div className="gradient" style={size}>
             <div className="nav">
             <div>Helo</div>
             <Nav tagz="Home" linky="/home"/>
@@ -18,6 +18,9 @@ const Header = (props) => {
         </div>
     )
 }
- 
+
+const size = {
+    height: '100px'
+}
 
 export default Header;

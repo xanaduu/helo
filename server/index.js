@@ -5,6 +5,7 @@ const massive = require('massive')
 const session = require('express-session');
 const axios = require ('axios')
 const cors = require('cors')
+const ctr = require ('./controller.js')
 
 const app = express();
 
@@ -18,6 +19,7 @@ massive(process.env.CONNECTION_STRING)
     console.log('error', error);
   });
 
+app.post('/api/form/update', ctr.updateProfile);
   
 const port = 3003;
 
