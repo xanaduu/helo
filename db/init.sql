@@ -6,11 +6,10 @@ CREATE TABLE users_helo (
    last TEXT
  );
 
- CREATE TABLE users_fullstack_auth (
+ CREATE TABLE users_helo_app (
   id SERIAL,
   auth0_id TEXT,
   email TEXT,
-  pictureUrl TEXT,
   name TEXT
 );
 

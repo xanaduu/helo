@@ -48,3 +48,18 @@
 .leftAlign{
   float: left;
 }
+
+.button {
+  background : #403D39;
+  background : rgba(64, 61, 57, 1);
+  border-radius : 10px;
+  -moz-border-radius : 10px;
+  -webkit-border-radius : 10px;
+  color: white;
+  padding: 5px 50px;
+  font-size: 20pt;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+}
